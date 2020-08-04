@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { ThemeProvider, ColorModeProvider } from "@chakra-ui/core";
 import './index.css';
-import App from './App';
+import { App } from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider>
+      <ColorModeProvider><App /></ColorModeProvider>
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
