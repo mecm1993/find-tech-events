@@ -58,7 +58,12 @@ export const EventCard = ({ data }: EventCardProps) => {
             For registration and more info
           </span>
           <div style={{width: '20%', textAlign: 'right'}}>
-            <a href={data.link} style={{textDecoration: 'none'}}>
+            <a
+              href={data.link}
+              target="_black"
+              rel="noopener noreferrer"
+              style={{textDecoration: 'none'}}
+            >
               <Image
                 src={data.image !== null && data.image.includes("meetup") ? MeetupLogo : EventbriteLogo}
                 alt={data.image !== null && data.image.includes("meetup") ? 'Meetup Logo' : 'Eventbrite Logo'}
