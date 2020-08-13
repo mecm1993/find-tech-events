@@ -1,11 +1,18 @@
 import React from "react";
+import GitHubLogo from "../../assets/github-logo.png";
 
 export const Header = () => {
   return (
-    <div style={{background: 'red'}}>
-      <div style={{display: 'inline-block'}}>
-        <p>This is a header</p>
+    <header>
+      <div className="header">
+        <a
+          href="https://github.com/mecm1993/find-tech-events"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={GitHubLogo} alt="GitHub logo" className="github-logo" />
+        </a>
       </div>
-    </div>
+    </header>
   );
 };

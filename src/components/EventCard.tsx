@@ -1,9 +1,10 @@
 import React from "react";
 import { Box, Image } from "@chakra-ui/core";
 import { Event } from "../models/event.interface";
+import { getOrdinalNumber, months} from "../utils/date";
 import EventbriteLogo from "../assets/eventbrite-logo.png";
 import MeetupLogo from "../assets/meetup-logo.png";
-import { getOrdinalNumber, months} from "../utils/date";
+import NotFoundImage from "../assets/not-found-image.jpg";
 
 interface EventCardProps {
   data: Event;
@@ -12,8 +13,18 @@ interface EventCardProps {
 export const EventCard = ({ data }: EventCardProps) => {
   const date = new Date(data.date);
   return (
-    <Box maxW="sm" borderWidth="1px" rounded="lg" overflow="hidden" style={{border: 'solid 1px #f1f1f1',margin: '10px 0'}}>
-      <Image src={data.image} alt={data.title} width="100%" />
+    <Box
+      maxW="sm"
+      borderWidth="1px"
+      rounded="lg"
+      overflow="hidden"
+      style={{
+        border: 'solid 1px #f1f1f1', 
+        margin: '10px 0', 
+        background: '#fff'
+      }}
+    >
+      <Image src={data.image ? data.image : NotFoundImage} alt={data.title} width="100%" />
 
       <Box p="6">
         <Box
@@ -36,23 +47,25 @@ export const EventCard = ({ data }: EventCardProps) => {
           fontWeight="light"
           lineHeight="tight"
         >
-          {data.location}
+          {data.location ? data.location : 'Online event'}
         </Box>
         <Box
           fontWeight="thin"
           lineHeight="tight"
-          style={{textAlign: 'right', margin: '15px 0 0', display: 'flex', alignItems: 'center'}}
+          style={{margin: '15px 0 0', display: 'flex', alignItems: 'center', width: '100%'}}
         >
-          <span>
+          <span style={{width: '80%'}}>
             For registration and more info
           </span>
-          <a href={data.link} style={{textDecoration: 'none'}}>
-            <Image
-              src={data.image !== null && data.image.includes("meetup") ? MeetupLogo : EventbriteLogo}
-              alt={data.image}
-              width="10%"
-            />
-          </a>
+          <div style={{width: '20%', textAlign: 'right'}}>
+            <a href={data.link} style={{textDecoration: 'none'}}>
+              <Image
+                src={data.image !== null && data.image.includes("meetup") ? MeetupLogo : EventbriteLogo}
+                alt={data.image !== null && data.image.includes("meetup") ? 'Meetup Logo' : 'Eventbrite Logo'}
+                width="50%"
+              />
+            </a>
+          </div>
         </Box>
       </Box>
     </Box>

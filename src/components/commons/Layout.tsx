@@ -8,14 +8,21 @@ interface LayoutProps {
 
 export const Layout = (props: React.PropsWithChildren<LayoutProps>) => {
   return (
-    <>
+    <div
+      style={{
+        display: 'flex',
+        margin: '0 auto',
+        flexDirection: 'column',
+        justifyContent: 'spaceBetween',
+        padding: '1.45rem 0',
+        minHeight: '100vh',
+      }}
+    >
       <Header />
-      <div
-        style={{padding: '5% 10%'}}
-      >
+      <div className="content">
         {props.children}
       </div>
       <Footer />
-    </>
+    </div>
   );
 };

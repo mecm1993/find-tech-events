@@ -3,6 +3,7 @@ import { SimpleGrid } from "@chakra-ui/core";
 import { Layout } from "./components/commons/Layout";
 import { EventsList } from "./components/EventsList";
 import { Event } from "./models/event.interface";
+import { Title } from "./components/commons/Title";
 
 
 export const App = () => {
@@ -58,6 +59,7 @@ export const App = () => {
 
   return (
     <Layout>
+      <Title />
       <SimpleGrid columns={[1, null, 3]} spacing="40px">
         {listItems === null ? <></> : <EventsList events={listItems} />}
         {isFetching && "Fetching more list items..."}
