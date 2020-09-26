@@ -31,7 +31,7 @@ export const App = () => {
   }, [isFetching, fetchMoreItems]);
 
   React.useEffect(() => {
-    fetch(`https://raw.githubusercontent.com/mecm1993/events-scraper/master/lib/events.json?token=AB5LWLK2F2QRVGCY6NS5PDK7N2E3U`, {
+    fetch('https://events-scraper.s3.amazonaws.com/events.json', {
       method: "GET"
     }).then(res => res.json())
       .then((response: Array<Event>) => {
