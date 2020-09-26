@@ -1,38 +1,39 @@
 import React from "react";
+import styled from "styled-components";
+
+const TitleContainer = styled.div`
+  margin: 1rem 0 2rem;
+`
+
+const TitleText = styled.span`
+  font-size: 32px;
+  font-weight: 800;
+`
+
+const SubtitleText = styled.span`
+  font-size: 18px;
+  font-weight: 500;
+`
+
+const DescriptionText = styled.span`
+  font-size: 16px;
+  font-weight: 300;
+`
 
 export const Title = () => {
   return (
-    <div
-      style={{
-        margin: '1rem 0 2rem',
-      }}
-    >
-      <span
-        style={{
-          fontSize: '32px',
-          fontWeight: 800,
-        }}
-      >
+    <TitleContainer>
+      <TitleText>
         Find Events
-      </span>
+      </TitleText>
       <br />
-      <span
-        style={{
-          fontSize: '18px',
-          fontWeight: 500,
-        }}
-      >
+      <SubtitleText>
         Related to Technology from the Dominican Republic
-      </span>
+      </SubtitleText>
       <br />
-      <span
-        style={{
-          fontSize: '16px',
-          fontWeight: 300,
-        }}
-      >
+      <DescriptionText>
         Support the local communities
-      </span>
-    </div>
+      </DescriptionText>
+    </TitleContainer>
   );
 };
