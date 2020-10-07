@@ -1,6 +1,5 @@
 import React from "react";
 import { Box, Image } from "@chakra-ui/core";
-import styled from "styled-components";
 import { Event } from "../models/event.interface";
 import { getOrdinalNumber, months} from "../utils/date";
 import EventbriteLogo from "../assets/eventbrite-logo.png";
@@ -10,19 +9,6 @@ import NotFoundImage from "../assets/not-found-image.jpg";
 interface EventCardProps {
   data: Event;
 }
-
-const RegistrationText = styled.span`
-  width: 80%;
-`
-
-const IconContainer = styled.div`
-  width: 20%;
-  text-align: right;
-`
-
-const EventLink = styled.a`
-  text-decoration: none;
-`
 
 export const EventCard = ({ data }: EventCardProps) => {
   const date = new Date(data.date);
@@ -35,12 +21,12 @@ export const EventCard = ({ data }: EventCardProps) => {
       style={{
         border: 'solid 1px #f1f1f1', 
         margin: '10px 0', 
-        background: '#fff',
+        background: '#fff'
       }}
     >
       <Image src={data.image ? data.image : NotFoundImage} alt={data.title} width="100%" />
 
-      <Box p="3">
+      <Box p="6">
         <Box
           mt="1"
           fontWeight="semibold"
@@ -68,11 +54,12 @@ export const EventCard = ({ data }: EventCardProps) => {
           lineHeight="tight"
           style={{margin: '15px 0 0', display: 'flex', alignItems: 'center', width: '100%'}}
         >
-          <RegistrationText>
+          <span style={{width: '80%'}}>
             For registration and more info
-          </RegistrationText>
-          <IconContainer>
-            <EventLink
+          </span>
+          <div style={{width: '20%', textAlign: 'right'}}>
+            <a
+              style={{textDecoration: 'none'}}
               href={data.link}
               target="_black"
               rel="noopener noreferrer"
@@ -82,8 +69,8 @@ export const EventCard = ({ data }: EventCardProps) => {
                 alt={data.image !== null && data.image.includes("meetup") ? 'Meetup Logo' : 'Eventbrite Logo'}
                 width="50%"
               />
-            </EventLink>
-          </IconContainer>
+            </a>
+          </div>
         </Box>
       </Box>
     </Box>
