@@ -40,7 +40,7 @@ yarn lint
 ```
 
 ### Deployment
-It deploys automatically to [Vercel](https://vercel.com/) when changes are pushed to the branches **develop** and **master**.
+It deploys automatically to [Vercel](https://vercel.com/) when changes are pushed to the branches **develop** and **main**.
 
 ### Built With
 * [React](https://reactjs.org/docs/create-a-new-react-app.html) - JavaScript Library
